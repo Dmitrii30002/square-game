@@ -1,0 +1,48 @@
+.authBlock {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%);
+    height: 500px;
+    width: 700px;
+    border-radius: 3px;
+    border-color: aqua;
+    box-shadow: 3px 3px 10px 10px aqua;
+}
+
+.username {
+    position: absolute;
+    left: 35%;
+    top: 30%;
+    width: 170px;
+    height: 40px;
+    font-size: 30px;
+}
+
+.textBox {
+    position: absolute;
+    top: 5%;
+    left: 52%;
+    transform: translate(-50%);
+    width: 300px;
+    height: 40px;
+    font-size: 30px;
+}
+
+.authBtn {
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    width: 170px;
+    height: 40px;
+    font-size: 30px;
+}
+
+.rateBtn {
+    position: absolute;
+    left: 35%;
+    top: 60%;
+    width: 170px;
+    height: 40px;
+    font-size: 30px;
+}

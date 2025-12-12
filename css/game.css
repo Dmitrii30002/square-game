@@ -1,0 +1,107 @@
+.gameBlock {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    min-height: 1000px;
+    width: 1000px;
+    border-radius: 3px;
+    border-color: aqua;
+    box-shadow: 3px 3px 10px 10px aqua;
+}
+
+.exampleBlock {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    left: 30%;
+    top: 10%;
+    height: 300px;
+    width: 400px;
+    border-radius: 3px;
+    border-color: aqua;
+    box-shadow: 3px 3px 10px 10px aqua;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: absolute;
+    gap: 10px;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%);
+    height: auto;
+    min-height: 300px;
+    width: 900px;
+    border-radius: 3px;
+    /*border-color: aqua;
+    box-shadow: 3px 3px 10px 10px aqua;*/
+}
+
+.square {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+}
+
+.squareBlock {
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;
+}
+
+.timer-container {
+    position: absolute;
+    left: 10%;
+    top: 5%;
+    width: 800px;
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.timer-line {
+    width: 100%;
+    height: 100%;
+    background: #4CAF50;
+    transition: width 1s linear;
+}
+
+
+.result {
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    position: absolute;
+    height: 400px;
+    width: 500px;
+    border-radius: 3px;
+    border-color: aqua;
+    box-shadow: 3px 3px 10px 10px aqua;
+    text-align: center;
+    font-size: 30px;
+}
+
+.gameExitBtn {
+    width: 170px;
+    height: 40px;
+    font-size: 30px;
+}
+
+.gameRateBtn {
+    width: 170px;
+    height: 40px;
+    font-size: 30px;
+}

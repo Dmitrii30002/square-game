@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/rating.css">
+    <script src="script/auth.js"></script>
+    <script src="script/game.js"></script>
+</head>
+
+<body>
+    <div class="authBlock" id="authBlock">
+        <div class="textBox">
+            <p>Войдите в аккаунт</p>
+        </div>
+        <input type="text" class="username" id="username">
+        <button class="authBtn" id="authBtn" onclick="login()">
+            <span>Войти</span>
+        </button>
+        <button class="rateBtn" id="rateBtn" onclick="showRating('authBlock')">
+            <span>Рейтинг</span>
+        </button>
+    </div>
+    <div class="menu" id="menu">
+        <div class="textBox">
+            <p>Выберите режим</p>
+        </div>
+
+        <div class="modeContainer" id="modeContainer">
+            <div class="dificulty">
+                <span>Простой режим 3x3</span>
+                <button class="modeBtn" onclick="setupLevel('easy', 'classic')">
+                    <p>Классический</p>
+                </button>
+                <button class="modeBtn" onclick="setupLevel('easy', 'nonStandart')">
+                    <p>Нестандартный</p>
+                </button>
+                <button class="modeBtn" onclick="setupLevel('easy', 'crazy')">
+                    <p>Безумный</p>
+                </button>
+            </div>
+            <div class="dificulty">
+                <span>Средний режим 4x4</span>
+                <button class="modeBtn" onclick="setupLevel('medium', 'classic')">
+                    <p>Классический</p>
+                </button>
+                <button class="modeBtn" onclick="setupLevel('medium', 'nonStandart')">
+                    <p>Нестандартный</p>
+                </button>
+                <button class="modeBtn" onclick="setupLevel('medium', 'crazy')">
+                    <p>Безумный</p>
+                </button>
+            </div>
+            <div class="dificulty">
+                <span>Сложный режим 5x5</span>
+                <button class="modeBtn" onclick="setupLevel('hard', 'classic')">
+                    <p>Классический</p>
+                </button>
+                <button class="modeBtn" onclick="setupLevel('hard', 'nonStandart')">
+                    <p>Нестандартный</p>
+                </button>
+                <button class="modeBtn" onclick="setupLevel('hard', 'crazy')">
+                    <p>Безумный</p>
+                </button>
+            </div>
+            <div class="dificulty">
+                <span>Режим эксперта 6x6</span>
+                <button class="modeBtn"  onclick="setupLevel('expert', 'classic')">
+                    <p>Классический</p>
+                </button>
+                <button class="modeBtn" onclick="setupLevel('expert', 'nonStandart')">
+                    <p>Нестандартный</p>
+                </button>
+                <button class="modeBtn" onclick="setupLevel('expert', 'crazy')">
+                    <p>Безумный</p>
+                </button>
+            </div>
+        </div>
+
+
+        <button class="rateBtn-menuBtn" onclick="showRating('menu')">
+            <span>Рейтинг</span>
+        </button>
+        <button class="exitBtn" onclick="exitToAuth('menu')">
+            <span>Выйти</span>
+        </button>
+    </div>
+
+    <div class="gameBlock" id="gameBlock">
+        <div class="exampleBlock" id="exampleBlock">
+            <!--Наш пример-->
+        </div>
+
+        <div class="options" id="options">
+            <!--Варианты ответов-->
+        </div>
+
+        <div class="timer-container" id="timer-container">
+            <div class="timer-line" id="timer-line"></div> 
+        </div>
+
+        <button class="gameExitBtn" onclick="showResult()">
+            <span>Выйти</span>
+        </button>
+    </div>
+
+    <div class="result" id="result"></div>
+    <div class="ratingBlock" id="ratingBlock">
+        <div class="textBox">
+            <p>Рейтинг игроков</p>
+        </div>
+
+        <div class="ratingContainer" id="ratingContainer">
+            <div class="rate" id="easyMode">
+                <span>Простой режим 3x3</span>
+            </div>
+            <div class="rate" id="mediumMode">
+                <span>Средний режим 4x4</span>
+            </div>
+            <div class="rate" id="hardMode">
+                <span>Сложный режим 5x5</span>
+            </div>
+            <div class="rate" id="expertMode">
+                <span>Режим эксперта 6x6</span>
+            </div>
+        </div>
+
+        <button class="exitBtn" onclick="exitToAuth('ratingBlock')">
+            <span>Выйти</span>
+        </button>
+    </div>
+</body>
+</html>
