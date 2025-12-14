@@ -91,6 +91,9 @@
     </div>
 
     <div class="gameBlock" id="gameBlock">
+        <div class="instruction" id="instruction">
+            <!-- Здесь будет инструкция-->
+        </div>
         <div class="exampleBlock" id="exampleBlock">
             <!--Наш пример-->
         </div>
@@ -132,12 +135,15 @@
             </div>
         </div>
  
-       <button class="ratingExitBtn" onclick="exitToAuth('ratingBlock')">
+        <button class="ratingExitBtn" onclick="exitToAuth('ratingBlock')">
             <span>Выйти</span>
         </button>
     </div>
-</body>
 
+    <audio id="correctSound" src="sounds/correct.mp3" preload="auto"></audio>
+    <audio id="incorrectSound" src="sounds/incorrect.mp3" preload="auto"></audio>
+    <audio id="timeleftSound" src="sounds/timeleft.mp3" preload="auto"></audio>
+</body>
 
 
 </html>
