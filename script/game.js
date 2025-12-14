@@ -252,6 +252,9 @@ function runClassicGame() {
         arr.push('sq' + (i + 1))
         square.addEventListener('click', () => {
             if (square.id == 'rightSquare') {
+                const correctSound = document.getElementById('correctSound');
+                correctSound.currentTime = 0;
+                correctSound.play();
                 points += 10
                 document.querySelectorAll('.square').forEach(sq => {
                     if (sq.id != 'exampleSquare' && sq.id != 'rightSquare') {
@@ -271,6 +274,9 @@ function runClassicGame() {
                 }, 1500);
             }
             else {
+                const incorrectSound = document.getElementById('incorrectSound');
+                incorrectSound.currentTime = 0;
+                incorrectSound.play();
                 points -= 5
                 square.style.boxShadow = '0 0 20px 5px red';
                 
@@ -355,6 +361,9 @@ function runNonStandartGame() {
         square.style.transform = `rotate(${randomAngle}deg)`
         square.addEventListener('click', () => {
             if (square.id == 'rightSquare') {
+                const correctSound = document.getElementById('correctSound');
+                correctSound.currentTime = 0;
+                correctSound.play();
                 points += 10
                 document.querySelectorAll('.square').forEach(sq => {
                     if (sq.id != 'exampleSquare' && sq.id != 'rightSquare') {
@@ -374,6 +383,9 @@ function runNonStandartGame() {
                 }, 1500);
             }
             else {
+                const incorrectSound = document.getElementById('incorrectSound');
+                incorrectSound.currentTime = 0;
+                incorrectSound.play();
                 points -= 5
                 square.style.boxShadow = '0 0 20px 5px red';
                 
