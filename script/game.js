@@ -172,17 +172,23 @@ function setupLevel(str, mode) {
     let timeLeft = level.time
     const totalTime = level.time;
     const timerLine = document.getElementById('timer-line');
+    const timeleftSound = document.getElementById('timeleftSound');
     timer = setInterval(() => {
         timeLeft--;
         const progress = timeLeft / totalTime;
         timerLine.style.width = `${progress * 100}%`;
 
         if (timeLeft <= 10) {
+            if(timeLeft==10) {
+                timeleftSound.currentTime = 0;
+                timeleftSound.play();
+            }
             shakeElements()
         }
 
         if (timeLeft <= -1) {
             timerLine.style.width = '0%';
+            timeleftSound.pause()
             showResult()
         }
     }, 1000);
@@ -199,6 +205,11 @@ function setupLevel(str, mode) {
 }
 
 function runClassicGame() {
+    const instruction = document.getElementById('instruction')
+    instruction.innerHTML = `
+        <p>Для поворота примера нажмите на него левой кнопком мыши</p>
+        <p>Для выбора ответа наведитесь на вариант и нажмите левой кнопкой мыши</p>
+    `
     angle = 0
     const exampleBlock = document.getElementById('exampleBlock')
     exampleBlock.innerHTML = ''
@@ -240,13 +251,20 @@ function runClassicGame() {
         square.id = 'sq' + (i + 1)
         arr.push('sq' + (i + 1))
         square.addEventListener('click', () => {
-            if (square.id == rightInd) {
+            if (square.id == 'rightSquare') {
                 points += 10
-                options.innerHTML = `
-                    <div class="choice" id="choice">
-                        <p>Верно!!!  +10</p>
-                    </div>
+                document.querySelectorAll('.square').forEach(sq => {
+                    if (sq.id != 'exampleSquare' && sq.id != 'rightSquare') {
+                        sq.style.display = 'none'
+                    }
+                });
+                let choice = document.createElement('div')
+                choice.className = 'choice'
+                choice.id = 'choice'
+                choice.innerHTML = `
+                    <p>Верно!!!  +10</p>
                 `
+                options.appendChild(choice)
                 setTimeout(() => {
                     options.innerHTML = ''
                     runClassicGame()
@@ -266,6 +284,7 @@ function runClassicGame() {
 
     let randomIndex = Math.floor(Math.random() * arr.length);
     let rightSquare = document.getElementById(arr[randomIndex])
+    rightSquare.id = 'rightSquare'
     rightInd = arr[randomIndex]
     rightSquare.innerHTML = square.innerHTML
     let angles = [0, 90, 180, 270]
@@ -274,6 +293,11 @@ function runClassicGame() {
 }
 
 function runNonStandartGame() {
+    const instruction = document.getElementById('instruction')
+    instruction.innerHTML = `
+        <p>Для поворота примера наведитесь на него, зажмите лкм и двигайте мышь</p>
+        <p>Для выбора ответа наведитесь на вариант и нажмите левой кнопкой мыши</p>
+    `
     const exampleBlock = document.getElementById('exampleBlock')
     exampleBlock.innerHTML = ''
     let square = document.createElement('div')
@@ -330,13 +354,20 @@ function runNonStandartGame() {
         randomAngle = Math.floor(Math.random() * 360);
         square.style.transform = `rotate(${randomAngle}deg)`
         square.addEventListener('click', () => {
-            if (square.id == rightInd) {
+            if (square.id == 'rightSquare') {
                 points += 10
-                options.innerHTML = `
-                    <div class="choice" id="choice">
-                        <p>Верно!!!  +10</p>
-                    </div>
+                document.querySelectorAll('.square').forEach(sq => {
+                    if (sq.id != 'exampleSquare' && sq.id != 'rightSquare') {
+                        sq.style.display = 'none'
+                    }
+                });
+                let choice = document.createElement('div')
+                choice.className = 'choice'
+                choice.id = 'choice'
+                choice.innerHTML = `
+                    <p>Верно!!!  +10</p>
                 `
+                options.appendChild(choice)
                 setTimeout(() => {
                     options.innerHTML = ''
                     runNonStandartGame()
@@ -355,6 +386,7 @@ function runNonStandartGame() {
     }
     let randomIndex = Math.floor(Math.random() * arr.length);
     let rightSquare = document.getElementById(arr[randomIndex])
+    rightSquare.id = 'rightSquare'
     rightInd = arr[randomIndex]
     rightSquare.innerHTML = square.innerHTML
     randomAngle = Math.floor(Math.random() * 360);
@@ -362,6 +394,12 @@ function runNonStandartGame() {
 }
 
 function runCrazyGame() {
+    const instruction = document.getElementById('instruction')
+    instruction.innerHTML = `
+        <p>Для поворота примера наведитесь на него, зажмите лкм и двигайте мышь</p>
+        <p>Для выбора ответа наведитесь на вариант и нажмите правой кнопкой мыши</p>
+        <p>Чтобы двигать варианты ответа, наведитесь на один из них и перетащите с помощью зажатия лкм</p>
+    `
     const exampleBlock = document.getElementById('exampleBlock')
     exampleBlock.innerHTML = ''
     let square = document.createElement('div')
@@ -431,25 +469,39 @@ function runCrazyGame() {
         square.addEventListener('mousedown', dragStart);
         square.addEventListener('contextmenu', function (event) {
             event.preventDefault();
-            if (square.id == rightInd) {
-                options.style.display = 'flex'
+            if (square.id == 'rightSquare') {
+                const correctSound = document.getElementById('correctSound');
+                correctSound.currentTime = 0;
+                correctSound.play();
                 points += 10
-                options.innerHTML = `
-                    <div class="choice" id="choice">
-                        <p>Верно!!!  +10</p>
-                    </div>
+                document.querySelectorAll('.square').forEach(sq => {
+                    if (sq.id != 'exampleSquare' && sq.id != 'rightSquare') {
+                        sq.style.display = 'none'
+                    }
+                });
+                square.style.position = 'static'
+                let choice = document.createElement('div')
+                options.style.display = 'flex'
+                choice.className = 'choice'
+                choice.id = 'choice'
+                choice.innerHTML = `
+                    <p>Верно!!!  +10</p>
                 `
+                options.appendChild(choice)
                 setTimeout(() => {
                     options.innerHTML = ''
                     runCrazyGame()
                 }, 1500);
             }
             else {
+                const incorrectSound = document.getElementById('incorrectSound');
+                incorrectSound.currentTime = 0;
+                incorrectSound.play();
                 points -= 5
-                this.style.boxShadow = '0 0 20px 5px red';
+                square.style.boxShadow = '0 0 20px 5px red';
                 
                 setTimeout(() => {
-                    this.style.boxShadow = '';
+                    square.style.boxShadow = '';
                 }, 200);
             }
         })
@@ -458,6 +510,7 @@ function runCrazyGame() {
 
     let randomIndex = Math.floor(Math.random() * arr.length);
     let rightSquare = document.getElementById(arr[randomIndex])
+    rightSquare.id = 'rightSquare'
     rightInd = arr[randomIndex]
     rightSquare.innerHTML = square.innerHTML
     randomAngle = Math.floor(Math.random() * 360);
@@ -504,7 +557,6 @@ function dragEnd() {
     document.removeEventListener('mousemove', dragMove);
     document.removeEventListener('mouseup', dragEnd);
 }
-
 
 function shakeElements() {
     document.querySelectorAll('.square').forEach(square => {
