@@ -4,7 +4,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -45%);
-    min-height: 1000px;
+    min-height: 800px;
     width: 1000px;
     border-radius: 3px;
     border-color: aqua;
@@ -37,4 +37,14 @@
     width: 30%;
     height: auto;
     text-align: center;
+}
+
+.ratingExitBtn {
+    width: 170px;
+    height: 40px;
+    font-size: 30px;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
