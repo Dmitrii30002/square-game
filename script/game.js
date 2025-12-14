@@ -136,7 +136,12 @@ function exitToAuth(id) {
     authBlock.style.display = 'inline'
 }
 
+var timer
+
 function showResult() {
+    const timeleftSound = document.getElementById('timeleftSound');
+    timeleftSound.pause()
+
     addToRating()
     clearInterval(timer);
     const gameBlock = document.getElementById('gameBlock')
@@ -160,7 +165,6 @@ function showResult() {
 let angle = 0
 var rightInd
 var points = 0
-var timer
 
 function setupLevel(str, mode) {
     const menu = document.getElementById('menu')
