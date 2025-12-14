@@ -1,10 +1,10 @@
 .gameBlock {
     display: none;
     position: absolute;
-    top: 50%;
+    top: 3%;
     left: 50%;
-    transform: translate(-50%, -45%);
-    min-height: 1000px;
+    transform: translate(-50%, 0%);
+    min-height: 900px;
     width: 1000px;
     border-radius: 3px;
     border-color: aqua;
@@ -17,7 +17,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    left: 30%;
+    left: 18%;
     top: 10%;
     height: 300px;
     width: 400px;
@@ -112,4 +112,13 @@
     text-align: center;
     font-size: 50px;
     color: rgb(37, 235, 19);
+}
+
+.instruction {
+    position: absolute;
+    top: 10%;
+    left: 65%;
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
 }
