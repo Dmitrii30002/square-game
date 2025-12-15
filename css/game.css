@@ -1,10 +1,11 @@
 .gameBlock {
     display: none;
     position: absolute;
-    top: 3%;
+    top: 3vmin;
     left: 50%;
     transform: translate(-50%, 0%);
-    min-height: 900px;
+    /*min-height: 900px;*/
+    height: 90%;
     width: 1000px;
     border-radius: 3px;
     border-color: aqua;
@@ -19,8 +20,10 @@
     align-items: center;
     left: 18%;
     top: 10%;
-    height: 300px;
-    width: 400px;
+    /*height: 300px;
+    width: 400px;*/
+    height: 30%;
+    width: 30%;
     border-radius: 3px;
     border-color: aqua;
     box-shadow: 3px 3px 10px 10px aqua;
@@ -116,9 +119,17 @@
 
 .instruction {
     position: absolute;
-    top: 10%;
-    left: 65%;
-    width: 300px;
+    top: 9%;
+    left: 55%;
+    width: 310px;
     height: 40px;
     font-size: 20px;
+}
+
+
+@media (min-height: 1024px) {
+    .gameBlock {
+        zoom: reset;
+        transform: none !important;
+    }
 }
